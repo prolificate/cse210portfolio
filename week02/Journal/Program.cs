@@ -24,6 +24,9 @@ class Program
             if (choice == "1")
             {
                 string prompt = promptGenerator.GetRandomPrompt();
+                Console.WriteLine($"How are you feeling today?");
+                string mood = Console.ReadLine();
+                Console.WriteLine();
                 Console.WriteLine($"Propmpt: {prompt}");
                 Console.Write(">");
                 string response = Console.ReadLine();
@@ -31,6 +34,7 @@ class Program
                 entry._date = DateTime.Now.ToShortDateString();
                 entry._promptText = prompt;
                 entry._entryText = response;
+                entry._mood = mood;
                 journal.AddEntry(entry);
                 Console.WriteLine("Entry added.");
             }

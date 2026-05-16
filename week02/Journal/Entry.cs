@@ -1,12 +1,17 @@
+//added extra information to it
+
 public class Entry
 {
     public string _date;
+     // extra information - mood
+    public string _mood;
     public string _promptText;
     public string _entryText;
 
     public void Display()
     {
         Console.WriteLine($"Date: {_date}");
+        Console.WriteLine($"Mood: {_mood}");
         Console.WriteLine($"Prompt: {_promptText}");
         Console.WriteLine($"Answer: {_entryText}");
         Console.WriteLine();
