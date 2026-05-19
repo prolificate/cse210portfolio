@@ -1,5 +1,7 @@
 using System;
 
+//added extra information to it
+//added extra information for the journal entry
 class Program
 {
     static void Main(string[] args)
@@ -24,6 +26,7 @@ class Program
             if (choice == "1")
             {
                 string prompt = promptGenerator.GetRandomPrompt();
+                //extra entry added
                 Console.WriteLine($"How are you feeling today?");
                 string mood = Console.ReadLine();
                 Console.WriteLine();
