@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 
 //made the program choose scriptures randomly
+//added a feature that chooses a scripture randomly 
 class Program
 {
     static void Main(string[] args)
