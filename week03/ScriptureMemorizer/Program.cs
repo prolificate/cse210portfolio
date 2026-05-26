@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 
-//made the program choose scriptures randomly
-//added a feature that chooses a scripture randomly 
+//had my program choose reandomly from a library of scriptures 
+//rather than a single one
 class Program
 {
     static void Main(string[] args)
