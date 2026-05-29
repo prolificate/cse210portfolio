@@ -4,7 +4,6 @@ class Program
 {
     static void Main(string[] args)
     {
-        // First customer
         Address address1 = new Address(
             "12 Main Street",
             "New York",
@@ -36,11 +35,10 @@ class Program
         order1.AddProduct(product1);
         order1.AddProduct(product2);
 
-        // Second customer
         Address address2 = new Address(
             "45 Allen Avenue",
             "Lagos",
-            "Lagos",
+            "Abuja",
             "Nigeria"
         );
 
@@ -68,7 +66,6 @@ class Program
         order2.AddProduct(product3);
         order2.AddProduct(product4);
 
-        // Display order 1
         Console.WriteLine("ORDER 1");
         Console.WriteLine("Packing Label:");
         Console.WriteLine(order1.GetPackingLabel());
@@ -80,7 +77,6 @@ class Program
 
         Console.WriteLine();
 
-        // Display order 2
         Console.WriteLine("ORDER 2");
         Console.WriteLine("Packing Label:");
         Console.WriteLine(order2.GetPackingLabel());
