@@ -4,6 +4,9 @@ using System.Collections.Generic;
 public class ListingActivity : Activity
 {
     private List<string> _prompts;
+    private List<string> _unusedPrompts;
+
+    private Random _random = new Random();
 
     public ListingActivity()
         : base(
@@ -19,21 +22,38 @@ public class ListingActivity : Activity
             "When have you felt the Holy Ghost this month?",
             "Who are some of your personal heroes?"
         };
+
+        _unusedPrompts = new List<string>(_prompts);
+    }
+
+    private string GetRandomPrompt()
+    {
+        if (_unusedPrompts.Count == 0)
+        {
+            _unusedPrompts = new List<string>(_prompts);
+        }
+
+        int index = _random.Next(_unusedPrompts.Count);
+
+        string prompt = _unusedPrompts[index];
+
+        _unusedPrompts.RemoveAt(index);
+
+        return prompt;
     }
 
     public void Run()
     {
         DisplayStartingMessage();
 
-        Random random = new Random();
-
         Console.WriteLine("\nList as many responses as you can to the following prompt:\n");
-        Console.WriteLine($"--- {_prompts[random.Next(_prompts.Count)]} ---");
+
+        Console.WriteLine($"--- {GetRandomPrompt()} ---");
 
         Console.Write("\nYou may begin in: ");
         ShowCountdown(5);
 
-        Console.WriteLine("\n");
+        Console.WriteLine();
 
         int count = 0;
 

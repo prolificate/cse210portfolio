@@ -1,3 +1,6 @@
+//added a feature that makes sure no prompt or question are selected until they 
+//have all been used atleast once in each session
+
 using System;
 
 class Program

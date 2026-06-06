@@ -1,10 +1,15 @@
- using System;
+using System;
 using System.Collections.Generic;
 
 public class ReflectionActivity : Activity
 {
     private List<string> _prompts;
     private List<string> _questions;
+
+    private List<string> _unusedPrompts;
+    private List<string> _unusedQuestions;
+
+    private Random _random = new Random();
 
     public ReflectionActivity()
         : base(
@@ -32,16 +37,49 @@ public class ReflectionActivity : Activity
             "What did you learn about yourself through this experience?",
             "How can you keep this experience in mind in the future?"
         };
+
+        _unusedPrompts = new List<string>(_prompts);
+        _unusedQuestions = new List<string>(_questions);
+    }
+
+    private string GetRandomPrompt()
+    {
+        if (_unusedPrompts.Count == 0)
+        {
+            _unusedPrompts = new List<string>(_prompts);
+        }
+
+        int index = _random.Next(_unusedPrompts.Count);
+
+        string prompt = _unusedPrompts[index];
+
+        _unusedPrompts.RemoveAt(index);
+
+        return prompt;
+    }
+
+    private string GetRandomQuestion()
+    {
+        if (_unusedQuestions.Count == 0)
+        {
+            _unusedQuestions = new List<string>(_questions);
+        }
+
+        int index = _random.Next(_unusedQuestions.Count);
+
+        string question = _unusedQuestions[index];
+
+        _unusedQuestions.RemoveAt(index);
+
+        return question;
     }
 
     public void Run()
     {
         DisplayStartingMessage();
 
-        Random random = new Random();
-
         Console.WriteLine("\nConsider the following prompt:\n");
-        Console.WriteLine($"--- {_prompts[random.Next(_prompts.Count)]} ---");
+        Console.WriteLine($"--- {GetRandomPrompt()} ---");
 
         Console.WriteLine("\nWhen you have something in mind, press Enter.");
         Console.ReadLine();
@@ -52,9 +90,8 @@ public class ReflectionActivity : Activity
 
         while (DateTime.Now < endTime)
         {
-            string question = _questions[random.Next(_questions.Count)];
+            Console.Write($"> {GetRandomQuestion()} ");
 
-            Console.Write($"> {question} ");
             ShowSpinner(5);
 
             Console.WriteLine();
