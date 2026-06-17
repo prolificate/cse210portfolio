@@ -9,11 +9,11 @@ class Program
 
         while (running)
         {
-            Console.WriteLine("\nEternal Quest");
+            Console.WriteLine("Eternal Quest");
             Console.WriteLine("----------------");
             manager.DisplayPlayerInfo();
 
-            Console.WriteLine("\nMenu Options:");
+            Console.WriteLine("Menu Options:");
             Console.WriteLine("1. Create New Goal");
             Console.WriteLine("2. List Goals");
             Console.WriteLine("3. Record Event");
@@ -21,7 +21,7 @@ class Program
             Console.WriteLine("5. Load Goals");
             Console.WriteLine("6. Quit");
 
-            Console.Write("\nSelect a choice: ");
+            Console.Write("Select a choice: ");
             string choice = Console.ReadLine();
 
             switch (choice)
@@ -37,7 +37,7 @@ class Program
                 case "3":
                     manager.DisplayGoals();
 
-                    Console.Write("\nWhich goal did you accomplish? ");
+                    Console.Write("Which goal did you accomplish? ");
                     int index = int.Parse(Console.ReadLine()) - 1;
 
                     manager.RecordGoal(index);
@@ -64,7 +64,7 @@ class Program
 
     static void CreateGoal(GoalManager manager)
     {
-        Console.WriteLine("\nGoal Types:");
+        Console.WriteLine("Goal Types:");
         Console.WriteLine("1. Simple Goal");
         Console.WriteLine("2. Eternal Goal");
         Console.WriteLine("3. Checklist Goal");
