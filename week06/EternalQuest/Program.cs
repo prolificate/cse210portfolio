@@ -8,10 +8,9 @@ class Program
 
         while (running)
         {
-            Console.Clear();
-            Console.WriteLine("Eternal Quest");
-            Console.WriteLine("-------------");
-            manager.DisplayPlayerStats();
+            Console.WriteLine("\nEternal Quest");
+            Console.WriteLine("----------------");
+            manager.DisplayPlayerInfo();
 
             Console.WriteLine("\nMenu Options:");
             Console.WriteLine("1. Create New Goal");
@@ -19,7 +18,7 @@ class Program
             Console.WriteLine("3. Record Event");
             Console.WriteLine("4. Save Goals");
             Console.WriteLine("5. Load Goals");
-            Console.WriteLine("6. Exit");
+            Console.WriteLine("6. Quit");
 
             Console.Write("\nSelect a choice: ");
             string choice = Console.ReadLine();
@@ -32,15 +31,15 @@ class Program
 
                 case "2":
                     manager.DisplayGoals();
-                    Console.ReadKey();
                     break;
 
                 case "3":
                     manager.DisplayGoals();
+
                     Console.Write("\nWhich goal did you accomplish? ");
                     int index = int.Parse(Console.ReadLine()) - 1;
+
                     manager.RecordGoal(index);
-                    Console.ReadKey();
                     break;
 
                 case "4":
@@ -57,7 +56,6 @@ class Program
 
                 default:
                     Console.WriteLine("Invalid option.");
-                    Console.ReadKey();
                     break;
             }
         }
@@ -70,10 +68,10 @@ class Program
         Console.WriteLine("2. Eternal Goal");
         Console.WriteLine("3. Checklist Goal");
 
-        Console.Write("Select goal type: ");
-        string type = Console.ReadLine();
+        Console.Write("Choose a goal type: ");
+        string choice = Console.ReadLine();
 
-        Console.Write("Name: ");
+        Console.Write("Goal name: ");
         string name = Console.ReadLine();
 
         Console.Write("Description: ");
@@ -82,7 +80,7 @@ class Program
         Console.Write("Points: ");
         int points = int.Parse(Console.ReadLine());
 
-        switch (type)
+        switch (choice)
         {
             case "1":
                 manager.AddGoal(

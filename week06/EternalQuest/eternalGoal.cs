@@ -19,11 +19,11 @@ public class EternalGoal : Goal
 
     public override string GetDetailsString()
     {
-        return $"[∞] {GetName()}";
+        return $"[∞] {GetName()} ({GetDescription()})";
     }
 
     public override string GetStringRepresentation()
     {
-        return $"EternalGoal:{GetName()}";
+        return $"EternalGoal|{GetName()}|{GetDescription()}|{GetPoints()}";
     }
 }
