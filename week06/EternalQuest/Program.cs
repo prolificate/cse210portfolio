@@ -1,3 +1,4 @@
+//add a new leveling system and player titles. As users earn points from completing goals, they level up and receive titles such as Beginner, Adventurer, Hero, and Legend. I also included congratulatory messages when goals are completed to make the program feel more like a game and encourage continued progress.
 class Program
 {
     static void Main(string[] args)
